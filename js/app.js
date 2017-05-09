@@ -1,15 +1,14 @@
 
 // Declare literal functions for each location
 
-// 
-
+// PDX Airport
 var locPdxAirport = {
 
   locName: 'PDX Airport',
-  minHourlyCust: 5,
-  maxHourlyCust: 20,
+  minHourlyCust: 23,
+  maxHourlyCust: 65,
   // avgHourlyCustomers: 0,
-  avgCookiesCust: 3,
+  avgCookiesCust: 6.3,
   locationHours: ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'],
 
   
@@ -25,7 +24,7 @@ var locPdxAirport = {
 
 setHourlyCookieCount: function() {
     var avgHourlyCustomers = locPdxAirport.getRandomHourlyCust();
-    var hourlyCookieCount = avgHourlyCustomers * this.avgCookiesCust;
+    var hourlyCookieCount = Math.round(avgHourlyCustomers * this.avgCookiesCust, 10);
     // return 'Hourly cookie count for ' + locationHours + ' = ' + hourlyCookieCount + '.';
     return hourlyCookieCount;
 },
@@ -45,3 +44,6 @@ setHourlyCookieCount: function() {
     ul.appendChild(li); // we have to first loop through all hours and append the new ul witih each li
  }
     container.appendChild(ul); // after the loop is done, we can then add the ul (and all list items) to the container ID (body)
+
+    // End PDX Airport
+
