@@ -8,24 +8,26 @@ var locPdxAirport = {
   locName: 'PDX Airport',
   minHourlyCust: 5,
   maxHourlyCust: 20,
-  avgHourlyCustomers: 0,
+  // avgHourlyCustomers: 0,
   avgCookiesCust: 3,
   locationHours: ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'],
 
   
 // Function to generate random number of customers per hour
   getRandomHourlyCust: function() {
-  min = this.minHourlyCust;
-  max = this.maxHourlyCust;
-  randomHourlyCust = Math.floor(Math.random() * (max - min)) + min;
+  var min = this.minHourlyCust;
+  var max = this.maxHourlyCust;
+  var randomHourlyCust = Math.floor(Math.random() * (max - min)) + min;
   console.log('Random Hourly Customer Count = ' + randomHourlyCust + '.');
+  return randomHourlyCust;
   },
 
 
-setHourlyCookieCount: function(locationHours) {
-    avgHourlyCustomers = getRandomHourlyCust();
-    hourlyCookieCount = locationHours + ' --> ' + (avgHourlyCustomers * avgCookiesCust);
-    return 'Hourly cookie count for ' + locationHours + ' = ' + hourlyCookieCount + '.';
+setHourlyCookieCount: function() {
+    var avgHourlyCustomers = locPdxAirport.getRandomHourlyCust();
+    var hourlyCookieCount = avgHourlyCustomers * this.avgCookiesCust;
+    // return 'Hourly cookie count for ' + locationHours + ' = ' + hourlyCookieCount + '.';
+    return hourlyCookieCount;
 },
   
  };
@@ -39,7 +41,7 @@ setHourlyCookieCount: function(locationHours) {
 
  for (var hour = 0; hour < locPdxAirport.locationHours.length; hour++) {
     var li = document.createElement('li');
-    li.innerText = locPdxAirport.locationHours[hour];
+    li.innerText = locPdxAirport.locationHours[hour] + ': ' + locPdxAirport.setHourlyCookieCount() + ' cookies';
     ul.appendChild(li); // we have to first loop through all hours and append the new ul witih each li
  }
     container.appendChild(ul); // after the loop is done, we can then add the ul (and all list items) to the container ID (body)
