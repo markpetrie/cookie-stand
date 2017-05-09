@@ -3,7 +3,7 @@
 
 // 
 
-var loc_pdx_airport = {
+var locPdxAirport = {
 
   locName: 'PDX Airport',
   minHourlyCust: 5,
@@ -13,7 +13,7 @@ var loc_pdx_airport = {
   locationHours: ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'],
 
   
-// Function to generate random number of cusomers per hour
+// Function to generate random number of customers per hour
   getRandomHourlyCust: function() {
   min = this.minHourlyCust;
   max = this.maxHourlyCust;
@@ -30,7 +30,16 @@ setHourlyCookieCount: function(locationHours) {
   
  };
 
- var container = document.getElementById('container');
- var h3 = document.createElement('h3');
- h3.innerText=loc_pdx_airport.locName;
- container.appendChild(h3);
+ var container = document.getElementById('container'); // set var container to the associated container ID element (<body>)
+ var h3 = document.createElement('h3'); // create a new h3 element (not used yet, but waiting in memory)
+ h3.innerText=locPdxAirport.locName; // set the innerText of the new h3 to the locName property of the main locPdxAirport object
+ container.appendChild(h3); // add the h3 with innerText to the html body
+ 
+ var ul = document.createElement('ul'); // create a new <ul> in memory
+
+ for (var hour = 0; hour < locPdxAirport.locationHours.length; hour++) {
+    var li = document.createElement('li');
+    li.innerText = locPdxAirport.locationHours[hour];
+    ul.appendChild(li); // we have to first loop through all hours and append the new ul witih each li
+ }
+    container.appendChild(ul); // after the loop is done, we can then add the ul (and all list items) to the container ID (body)
