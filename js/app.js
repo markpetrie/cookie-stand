@@ -3,6 +3,7 @@
 
 // PDX Airport
 
+var pdxAirportCookieCounts = [];
 
 function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust, locationHours, totalCookieCount) {
   this.locName = locName;
@@ -10,20 +11,57 @@ function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust, locatio
   this.maxHourlyCust = maxHourlyCust;
   this.avgCookiesCust = avgCookiesCust;
   this.locationHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'];
+  this.hourlyCookieCounts = [];
   this.totalCookieCount = 0;
 }
 
 Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust, avgCookiesCust, locationHours) {
-  var hourlyCookieCounts = [];
+  // hourlyCookieCounts = [];
   for (var hour = 0; hour < this.locationHours.length; hour++) {
     var randomHourlyCust = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust)) + this.minHourlyCust;
-    console.log(randomHourlyCust);
+    // console.log(randomHourlyCust);
     var hourlyCookieCount = Math.round(randomHourlyCust * this.avgCookiesCust);
-    console.log('hourly cookie count: ' + hourlyCookieCount);
-    hourlyCookieCounts.push(this.locationHours[hour] + ': ' + hourlyCookieCount);
-    console.log('hourlyCookieCounts: ' + hourlyCookieCounts);
+    // console.log('hourly cookie count: ' + hourlyCookieCount);
+    this.hourlyCookieCounts.push(this.locationHours[hour] + ': ' + hourlyCookieCount);
+    console.log('hourlyCookieCounts: ' + this.hourlyCookieCounts);
+
+   }
+   pdxAirportCookieCounts = this.hourlyCookieCounts;
+}
+
+Location.prototype.renderTable = function() {
+
+  var body = document.getElementsByTagName("body");
+  var table = document.createElement("table");
+  var tbody = document.createElement("tbody");
+  var row = document.createElement("tr");
+
+  for (var i = 0; i < this.hourlyCookieCounts.length; i++) {
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode(this.hourlyCookieCounts[i]);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+    tbody.appendChild(row);
+    table.appendChild(tbody);
+
   }
 }
+
+var pdxAirport = new Location('PDX Airport', 23, 65, 6.3);
+// console.log('PDX Airport: ' + pdxAirport.avgCookiesCust + '.');
+
+pdxAirport.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);
+// pdxAirport.renderTable();
+
+
+
+
+
+
+
+
+
+
 //return hourlyCookieCount;
 
 // var container = document.getElementById('container'); // set var container to the associated container ID element (<body>)
@@ -49,10 +87,7 @@ Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust
 
 // End setHourlyCookieCount function
 
-var pdxAirport = new Location('PDX Airport', 23, 65, 6.3);
-console.log('PDX Airport: ' + pdxAirport.avgCookiesCust + '.');
 
-pdxAirport.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);
 
 // pdxAirport.setHourlyCookieCount(minHourlyCust, maxHourlyCust, avgCookiesCust);
 
