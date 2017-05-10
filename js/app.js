@@ -14,8 +14,8 @@ function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust, locatio
 // Function to calculate and set hourly cookie counts
 
 Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust, avgCookiesCust, locationHours) {
-  
-    for (var hour = 0; hour < this.locationHours.length; hour++) {
+console.log(this);
+  for (var hour = 0; hour < this.locationHours.length; hour++) {
     var randomHourlyCust = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust)) + this.minHourlyCust;
     var hourlyCookieCount = Math.round(randomHourlyCust * this.avgCookiesCust);
     this.hourlyCookieCounts.push(hourlyCookieCount);
@@ -26,7 +26,7 @@ Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust
 // Render function to populate location cookie count data
 
 Location.prototype.render = function () {
-  var table = document.getElementById( 'counts' );
+  var table = document.getElementById('counts');
   var row = document.createElement('tr');
   var locationCell = document.createElement('td');
   locationCell.innerText = this.locName;
@@ -51,7 +51,9 @@ var waterfront = new Location('Waterfront', 2, 16, 4.6);
 
 // Set hourly cookie counts for each location
 
+console.log('About to call PDX Airport');
 pdxAirport.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);
+console.log('After PDX Airport call');
 pioneerSquare.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);
 powells.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);
 stJohns.setHourlyCookieCount(this.minHourlyCust, this.maxHourlyCust, this.avgCookiesCust, this.locationHours);

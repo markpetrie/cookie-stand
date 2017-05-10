@@ -3,6 +3,11 @@
 
 <head>
     <style>
+        html {
+            font-family: Roboto, Arial, Helvetica;
+        }
+
+
         table {
             empty-cells: show;
         }
@@ -17,13 +22,64 @@
             border: 1px solid gray;
             padding: 5px;
         }
+        /*fieldset {
+            border: 1px solid green;
+            width: 30%;
+            float: left;
+            margin-left: 19%;
+            margin-right: 2%;
+        }
 
+        legend {
+            padding: 0.2em 0.5em;
+            border: 1px solid green;
+            color: green;
+            font-size: 90%;
+            text-align: right;
+        }*/
+
+        /*.container {
+            display: table;
+            width: 100%;
+            height: 80vh;
+        }
+        .left-half {
+            background-color: #ff9e2c;
+            position: absolute;
+            left: 0px;
+            width: 50%;
+            height: 100%;
+        }
+        .right-half {
+            background-color: #b6701e;
+            position: absolute;
+            right: 0px;
+            width: 50%;
+            height: 100%;
+        }*/
     </style>
 
 </head>
 
-<body id="container">
-    <h1>Location Cookie Counts</h1>
+
+<body>
+    <section class="container">
+        <div class="left-half">
+            <h2>Location Cookie Counts</h2>
+        </div>
+        <div class="right-half">
+            <form action="#">
+                <fieldset id="new location">
+                    <legend>Add new location</legend>
+                    <label>Location name<input type="text" name="locname" required="required" size="20" maxlength="30" /></label></br>
+                    <label>Minimum hourly customers<input type="number" name="minHourlyCust" required="required" size="20" maxlength="20" /></label></br>
+                    <label>Maximum hourly customers<input type="number" name="maxHourlycust" required="required" size="20" maxlength="20" /></label></br>
+                    <label>Avg # cookies per customer<input type="number" name="avgCookiesCust" required="required" size="20" maxlength="20" /><label></br>
+                <input type="submit" value="submit" />
+            </fieldset>
+       </form>
+    </div>
+
     <table id='counts'>
         <tr>
             <th></th>
