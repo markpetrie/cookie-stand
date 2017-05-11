@@ -55,7 +55,7 @@ function addNewLocation() {
   var minHourlyCust = form.minHourlyCust.value;
   var maxHourlyCust = form.maxHourlyCust.value;
   var avgCookiesCust = form.avgCookiesCust.value;
-  var locID = form.locID.value;
+  var locId = form.locId.value;
   var locationHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'];
   var hourlyCookieCounts = [];
   var totalCookieCount = 0;
