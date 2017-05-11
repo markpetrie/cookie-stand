@@ -37,7 +37,6 @@
             font-size: 90%;
             text-align: right;
         }*/
-
         /*.container {
             display: table;
             width: 100%;
@@ -60,22 +59,21 @@
     </style>
 
 </head>
-
-
 <body>
     <section class="container">
         <div class="left-half">
             <h2>Location Cookie Counts</h2>
         </div>
         <div class="right-half">
-            <form action="#">
+            <form id="addLocation" action="#">
                 <fieldset id="new location">
                     <legend>Add new location</legend>
-                    <label>Location name<input type="text" name="locname" required="required" size="20" maxlength="30" /></label></br>
+                    <label>Location name<input type="text" name="locName" required="required" size="20" maxlength="30" /></label></br>
+                    <label>Location ID<input type="text" name="locID" required="required" size="20" maxlength="30" /></label></br>
                     <label>Minimum hourly customers<input type="number" name="minHourlyCust" required="required" size="20" maxlength="20" /></label></br>
-                    <label>Maximum hourly customers<input type="number" name="maxHourlycust" required="required" size="20" maxlength="20" /></label></br>
+                    <label>Maximum hourly customers<input type="number" name="maxHourlyCust" required="required" size="20" maxlength="20" /></label></br>
                     <label>Avg # cookies per customer<input type="number" name="avgCookiesCust" required="required" size="20" maxlength="20" /><label></br>
-                <input type="submit" value="submit" />
+                    <input type="submit" value="submit" />
             </fieldset>
        </form>
     </div>
