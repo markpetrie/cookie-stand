@@ -1,5 +1,5 @@
 
-// Constructor function for creating Locations
+// Constructor function for creating new Locations
 
 function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
   this.locName = locName;
@@ -15,10 +15,12 @@ function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
 }
 
 // setHourlyCookieCount() function used as hourly cookie count method inside Location constructor function
-Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust, avgCookiesCust, locationHours) {
+
+Location.prototype.setHourlyCookieCount = function () {
   console.log(this);
-  for (var hour = 0; hour < this.locationHours.length; hour++) {
-    var randomHourlyCust = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust + 1)) + this.minHourlyCust;
+  for (var i = 0; i < this.locationHours.length; i++) {
+    console.log('current loop location: ' + this.locName + '. locationHours.length: ' + this.locationHours.length + '.');
+    var randomHourlyCust = Math.floor ( Math.random () * ( this.maxHourlyCust - this.minHourlyCust + 1 ) ) + 1;
     var hourlyCookieCount = Math.round(randomHourlyCust * this.avgCookiesCust);
     this.hourlyCookieCounts.push(hourlyCookieCount);
     console.log('hourlyCookieCounts: ' + this.hourlyCookieCounts);
@@ -26,6 +28,7 @@ Location.prototype.setHourlyCookieCount = function (minHourlyCust, maxHourlyCust
 }
 
 // render() function used as HTML table rendering method inside Location constructor function
+
 Location.prototype.render = function () {
   var table = document.getElementById('counts');
   var row = document.createElement('tr');
@@ -42,10 +45,12 @@ Location.prototype.render = function () {
 }
 
 // Add event listener and handler for submitting new location forms
+
 var addLocation = document.getElementById('addLocation');
 addLocation.addEventListener('submit', addNewLocation);
 
-// onSubmit event handler that call Location constructor function
+// onSubmit event handler that calls Location constructor function
+
 function addNewLocation() {
   event.preventDefault();
   var form = event.target;
