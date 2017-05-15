@@ -1,111 +1,108 @@
 <!DOCTYPE html>
-<html lang="en us">
+<html lang="en">
 
 <head>
-    <style>
-        html {
-            font-family: Roboto, Arial, Helvetica;
-        }
 
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Your page title here :)</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-        table {
-            empty-cells: show;
-        }
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        td {
-            border: 1px solid gray;
-            padding: 5px;
-        }
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-        th {
-            font-style: Roboto, Arial, serif;
-            border: 1px solid gray;
-            padding: 5px;
-        }
-        /*fieldset {
-            border: 1px solid green;
-            width: 30%;
-            float: left;
-            margin-left: 19%;
-            margin-right: 2%;
-        }
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!--<link rel="stylesheet" href="css/normalize.css">-->
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
 
-        legend {
-            padding: 0.2em 0.5em;
-            border: 1px solid green;
-            color: green;
-            font-size: 90%;
-            text-align: right;
-        }*/
-        /*.container {
-            display: table;
-            width: 100%;
-            height: 80vh;
-        }
-        .left-half {
-            background-color: #ff9e2c;
-            position: absolute;
-            left: 0px;
-            width: 50%;
-            height: 100%;
-        }
-        .right-half {
-            background-color: #b6701e;
-            position: absolute;
-            right: 0px;
-            width: 50%;
-            height: 100%;
-        }*/
-    </style>
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
 
 <body>
-    <section class="container">
-        <div class="left-half">
-            <h2>Location Cookie Counts</h2>
-        </div>
-        <div class="right-half">
-            <form id="addLocation" action="#">
-                <fieldset id="new location">
-                    <legend>Add new location</legend>
-                    <label>Location name<input type="text" name="locName" required="required" size="20" maxlength="30" /></label></br>
-                    <label>Location ID<input type="text" name="locId" required="required" size="20" maxlength="30" /></label></br>
-                    <label>Minimum hourly customers<input type="number" name="minHourlyCust" required="required" size="20" maxlength="20" /></label></br>
-                    <label>Maximum hourly customers<input type="number" name="maxHourlyCust" required="required" size="20" maxlength="20" /></label></br>
-                    <label>Avg # cookies per customer<input type="number" name="avgCookiesCust" required="required" size="20" maxlength="20" /></label></br>
-                    <input type="submit" value="submit" />
-            </fieldset>
-       </form>
-    </div>
 
-    <table id='counts'>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <div id="header">
+    <img src="images/salmon-cookies-logo.png">
+  </div>
+  <!-- end "header" -->
+  <div id="nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="locations.html">Locations</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="sales.html">Sales</a></li>
+    </ul>
+  </div>
+  <!-- end of "nav"" -->
+
+  <div class="sales-container">
+    <br />
+    <h4>Add new location</h4>
+    <form id="addLocation" action="#">
+      <fieldset id="new location">
+        <label>Location name: <input type="text" name="locName" required="required" size="20" maxlength="30" /></label></br>
+        <label>Location ID: <input type="text" name="locId" required="required" size="20" maxlength="30" /></label></br>
+        <label>Minimum hourly customers: <input type="number" name="minHourlyCust" required="required" size="20" maxlength="20" /></label></br>
+        <label>Maximum hourly customers: <input type="number" name="maxHourlyCust" required="required" size="20" maxlength="20" /></label></br>
+        <label>Avg # cookies per customer: <input type="number" name="avgCookiesCust" required="required" size="20" maxlength="20" /></label></br>
+        <input type="submit" value="submit" />
+      </fieldset>
+    </form>
+  </div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div class="eleven columns">
+      <table id='counts'>
         <tr>
-            <th></th>
-            <th>6:00 AM</th>
-            <th>7:00 AM</th>
-            <th>8:00 AM</th>
-            <th>9:00 AM</th>
-            <th>10:00 AM</th>
-            <th>11:00 AM</th>
-            <th>12:00 PM</th>
-            <th>1:00 PM</th>
-            <th>2:00 PM</th>
-            <th>3:00 PM</th>
-            <th>4:00 PM</th>
-            <th>5:00 PM</th>
-            <th>6:00 PM</th>
-            <th>7:00 PM</th>
-            <th>8:00 PM</th>
+          <th></th>
+          <th>6 AM</th>
+          <th>7 AM</th>
+          <th>8 AM</th>
+          <th>9 AM</th>
+          <th>10 AM</th>
+          <th>11 AM</th>
+          <th>12 PM</th>
+          <th>1 PM</th>
+          <th>2 PM</th>
+          <th>3 PM</th>
+          <th>4 PM</th>
+          <th>5 PM</th>
+          <th>6 PM</th>
+          <th>7 PM</th>
+          <th>8 PM</th>
         </tr>
-
-
-    </table>
+      </table>
+    </div>
     <script src="js/app.js"></script>
+  </div>
+
+  <hr />
+  <div id="home-footer" class="container">
+    <p>© Pat's Salmon Cookies 2017</p>
+  </div>
+
+
+
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
-<main>
-</main>
-<footer>
-</footer>
 
 </html>

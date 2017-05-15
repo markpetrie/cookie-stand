@@ -1,0 +1,126 @@
+
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=10c0u0klJmtbExlh7rdqii1vBcw */
+
+
+/* As hex codes */
+
+.color-primary-0 { color: #B35739 }	/* Main Primary color */
+.color-primary-1 { color: #FFB9A2 }
+.color-primary-2 { color: #D98165 }
+.color-primary-3 { color: #90361A }
+.color-primary-4 { color: #641901 }
+
+
+
+/* As RGBa codes */
+
+.rgba-primary-0 { color: rgba(179, 87, 57,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(255,185,162,1) }
+.rgba-primary-2 { color: rgba(217,129,101,1) }
+.rgba-primary-3 { color: rgba(144, 54, 26,1) }
+.rgba-primary-4 { color: rgba(100, 25,  1,1) }
+
+/*
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#header {
+    box-sizing: border-box;
+    min-height: 100px;
+    background-color: #D98165;
+        }
+
+    #header img {
+        width: 15%;
+        margin-left: 42.5%;
+        margin-right: 42.5%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
+#header h1 {
+    padding: 10px;
+}
+
+#header h2 {
+    width: 100%;
+}
+
+#nav ul {
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #90361A;
+}
+
+#nav ul li {
+    float: left;
+    margin: auto;
+}
+
+#nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#nav li a:hover {
+    background-color: #111;
+}
+
+#home-main {
+   display: block;
+   min-height: 400px;
+   text-align: justify;
+   
+         }
+
+#home-main-title {
+    text-align: center;
+    color: #641901;
+} 
+#home-main img {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    }  
+
+#home-footer {
+    min-height: 40px;
+} 
+
+#family-title {
+    text-align: center;
+    color: #641901;
+}
+
+#family-main img {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+} 
+
+#family-main p {
+    text-align: justify;
+}
+
+#home-footer p {
+    text-align: center;
+}
+
+#locations {
+    text-align: center;
+}
+
+#contact-button {
+    display: block;
+    text-align: center;
+}
+
+fieldset {
+    display: inline;
+}

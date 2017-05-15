@@ -1,4 +1,4 @@
-
+'use strict';
 // Constructor function for creating new Locations
 
 function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
@@ -14,20 +14,21 @@ function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
   this.render();
 }
 
-// setHourlyCookieCount() function used as hourly cookie count method inside Location constructor function
+// setHourlyCookieCount() Location method -- sets hourly cookie counts -- called from Location constructor function
 
-Location.prototype.setHourlyCookieCount = function () {
+Location.prototype.setHourlyCookieCount = function (locName, minHourlyCust, maxHourlyCust, avgCookieCust) {
   console.log(this);
   for (var i = 0; i < this.locationHours.length; i++) {
     console.log('current loop location: ' + this.locName + '. locationHours.length: ' + this.locationHours.length + '.');
     var randomHourlyCust = Math.floor ( Math.random () * ( this.maxHourlyCust - this.minHourlyCust + 1 ) ) + 1;
+    console.log('Random Hourly Customer Count: ' + randomHourlyCust + ' for ' + this.locationHours[i] + '.');
     var hourlyCookieCount = Math.round(randomHourlyCust * this.avgCookiesCust);
     this.hourlyCookieCounts.push(hourlyCookieCount);
     console.log('hourlyCookieCounts: ' + this.hourlyCookieCounts);
   }
 }
 
-// render() function used as HTML table rendering method inside Location constructor function
+// render() method -- dynamically builds table and inserts data -- called from Location constructor function
 
 Location.prototype.render = function () {
   var table = document.getElementById('counts');
