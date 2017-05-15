@@ -1,4 +1,7 @@
 'use strict';
+// Global array used to calculate cookie totals for each hour
+var totalCookiesByHour = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 // Constructor function for creating new Locations
 
 function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
@@ -12,6 +15,7 @@ function Location(locName, minHourlyCust, maxHourlyCust, avgCookiesCust) {
   this.locationID;
   this.setHourlyCookieCount();
   this.render();
+  this.renderTotals();
 }
 
 // setHourlyCookieCount() Location method -- sets hourly cookie counts -- called from Location constructor function
@@ -20,10 +24,12 @@ Location.prototype.setHourlyCookieCount = function (locName, minHourlyCust, maxH
   console.log(this);
   for (var i = 0; i < this.locationHours.length; i++) {
     console.log('current loop location: ' + this.locName + '. locationHours.length: ' + this.locationHours.length + '.');
-    var randomHourlyCust = Math.floor ( Math.random () * ( this.maxHourlyCust - this.minHourlyCust + 1 ) ) + 1;
+    var randomHourlyCust = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust + 1)) + 1;
     console.log('Random Hourly Customer Count: ' + randomHourlyCust + ' for ' + this.locationHours[i] + '.');
     var hourlyCookieCount = Math.round(randomHourlyCust * this.avgCookiesCust);
     this.hourlyCookieCounts.push(hourlyCookieCount);
+    totalCookiesByHour[i] = totalCookiesByHour[i] + hourlyCookieCount;
+    console.log('total cookies for all locations at index ' + i + ' :' + totalCookiesByHour[i]);
     console.log('hourlyCookieCounts: ' + this.hourlyCookieCounts);
   }
 }
@@ -43,6 +49,12 @@ Location.prototype.render = function () {
     row.appendChild(cell);
   }
   table.appendChild(row);
+}
+
+Location.prototype.renderTotals = function () {
+    for (var i = 0; i < totalCookiesByHour.length; i++) {
+    document.getElementById(i).innerText = totalCookiesByHour[i];
+  }
 }
 
 // Add event listener and handler for submitting new location forms
